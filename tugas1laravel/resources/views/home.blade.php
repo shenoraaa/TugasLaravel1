@@ -1,51 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gridas Library</title>
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridas Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<body>
-  <br>
+<body style="
+    background: url('{{ asset('images/bgblur.jpg') }}') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #1b2a49;
+">
 
-  <!-- HANYA TAMPILAN SAJA YA KA,BLM BISA DIAPA APAIN HEEHEHE -->
-  <header class="navbar">
-    <div class="logo">
-      <img src="{{ asset('images/logo.png') }}" alt="Logo">
-      <span>Gridas Library</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#">Beranda</a></li>
-      <li><a href="#">Daftar Buku</a></li>
-      <li><a href="#">Peminjaman</a></li>
-      <li><a href="#">Kontak</a></li>
-    </ul>
-    <a href="#" class="btn-dark">LOGIN</a>
-  </header>
+    <div class="container">
+        <header class="header-top">
+            <h2 class="library-title">Gridas Library</h2>
+            <p class="slogan">Akses Tak Terbatas, Wawasan Tanpa Batas.</p>
+        </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>
-        <span style="font-family: 'Dancing Script', cursive; font-size: 55px; color:#1f2a44;">Welcome To</span><br>
-        <span style="font-family: 'Poppins', sans-serif; color:#3b6ddc;">Gridas Library</span>
-      </h1>
-      <p>Gridas Library SMKN 2 Sumedang adalah perpustakaan digital sekolah yang memudahkan siswa dan guru dalam mencari serta membaca berbagai koleksi buku secara online. Tujuannya untuk mendukung literasi, pembelajaran, dan penerapan teknologi di lingkungan sekolah.</p>
-      <a href="#" class="btn-primary">Lihat Selengkapnya..</a>
-    </div>
+        <main>
+            <div class="table-header">
+                <h3>Daftar Buku Best Seller</h3>
+                <form method="GET" action="{{ url('/') }}" class="search-box">
+                    <input type="text" name="search" value="{{ $search }}" placeholder="Cari buku atau penulis...">
+                    <button type="submit">Cari</button>
+                </form>
+            </div>
+<br>
 
-    <div class="hero-images">
-      <div class="img-main">
-        <img src="{{ asset('images/2.jpg') }}" alt="Main Library">
-      </div>
-      <div class="img-side">
-        <img src="{{ asset('images/resepsionis.jpg') }}" alt="Library Hall">
-        <img src="{{ asset('images/blajat.jpg') }}" alt="Book Shelf">
-      </div>
+            <div class="image-carousel-container">
+  <div class="carousel-track">
+    <div class="image-card">
+      <img src="{{ asset('images/buku_harrypotter.jpg') }}" alt="Buku 1">
+      <div class="book-title">Harry Potter</div>
     </div>
-  </section>
+    <div class="image-card">
+      <img src="{{ asset('images/bukuLuna.jpg') }}" alt="Buku 2">
+      <div class="book-title">Planet Luna</div>
+    </div>
+    <div class="image-card">
+      <img src="{{ asset('images/Bukubaru.jpg') }}" alt="Buku 3">
+      <div class="book-title">The Last Spell</div>
+    </div>
+  </div>
+</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Judul Buku</th>
+                        <th>Penulis</th>
+                        <th>Tahun</th>
+                        <th>Harga</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($books as $i => $book)
+                        <tr>
+                            <td>{{ $i + 1 }}</td>
+                            <td>{{ $book['judul'] }}</td>
+                            <td>{{ $book['penulis'] }}</td>
+                            <td>{{ $book['tahun'] }}</td>
+                            <td>{{ $book['harga'] }}</td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5">Tidak ada hasil ditemukan.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </main>
+
+       <footer>
+            <div class="copyright">
+                &copy; {{ date('Y') }} Gridas Library. All rights reserved.
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
