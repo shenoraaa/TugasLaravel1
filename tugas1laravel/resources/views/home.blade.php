@@ -19,9 +19,20 @@
 
     <div class="container">
         <header class="header-top">
-            <h2 class="library-title">Gridas Library</h2>
-            <p class="slogan">Akses Tak Terbatas, Wawasan Tanpa Batas.</p>
-        </header>
+    <h2 class="library-title">Gridas Library</h2>
+    <p class="slogan">Akses Tak Terbatas, Wawasan Tanpa Batas.</p>
+
+    <div class="pesan-btn-container">
+        <a href="{{ route('form.pesan') }}" class="pesan-btn">
+            💬 Kirim Pesan Khusus untuk Gridas Library
+        </a>
+    </div>
+</header>
+@if(session('success'))
+    <div style="background-color:#e1f5e1; color:#2a652a; padding:10px; border-radius:10px; margin:15px 0; text-align:center;">
+        {{ session('success') }}
+    </div>
+@endif
 
         <main>
             <div class="table-header">
@@ -77,6 +88,17 @@
             </table>
         </main>
 
+@if(session('messages'))
+    <div class="pesan-container">
+        <h3>Pesan dari Pengunjung</h3>
+        @foreach(session('messages') as $msg)
+            <div class="pesan-box">
+                <strong>{{ $msg['nama'] }}</strong>:
+                <p>{{ $msg['pesan'] }}</p>
+            </div>
+        @endforeach
+    </div>
+@endif
        <footer>
             <div class="copyright">
                 &copy; {{ date('Y') }} Gridas Library. All rights reserved.

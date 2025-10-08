@@ -282,3 +282,96 @@ footer {
         transform: translateY(0);
     }
 }
+
+.pesan-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #102a71, #1a4dd8);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 5px 15px rgba(16, 42, 113, 0.3);
+    transition: all 0.3s ease;
+}
+
+.pesan-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(16, 42, 113, 0.4);
+    background: linear-gradient(135deg, #153da3, #2a66f0);
+}
+/* bagian pesan pengunjungggg*/
+.pesan-container {
+    margin-top: 50px;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+.pesan-container h3 {
+    font-size: 1.4em;
+    color: #102a71;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(16, 42, 113, 0.1);
+}
+
+.pesan-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.pesan-list::-webkit-scrollbar {
+    width: 6px;
+}
+.pesan-list::-webkit-scrollbar-thumb {
+    background: #aab8d8;
+    border-radius: 10px;
+}
+.pesan-list::-webkit-scrollbar-thumb:hover {
+    background: #7d8ac1;
+}
+
+.pesan-box {
+    background: linear-gradient(135deg, #eaf0ff 0%, #f8faff 100%);
+    border-left: 5px solid #102a71;
+    border-radius: 12px;
+    padding: 15px 20px;
+    text-align: left;
+    box-shadow: 0 3px 12px rgba(16, 42, 113, 0.08);
+    transition: all 0.25s ease;
+}
+
+.pesan-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(16, 42, 113, 0.12);
+}
+
+.pesan-header {
+    font-weight: 600;
+    color: #102a71;
+    margin-bottom: 5px;
+}
+
+.pesan-body p {
+    margin: 0;
+    color: #2f3b5f;
+    font-size: 0.95em;
+    line-height: 1.5em;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

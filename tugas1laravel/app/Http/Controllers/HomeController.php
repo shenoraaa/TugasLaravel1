@@ -35,4 +35,21 @@ class HomeController extends Controller
             'search' => $search
         ]);
     }
+public function showForm()
+{
+    return view('form');
+}
+
+public function kirimPesan(Request $request)
+{
+    $nama = $request->input('nama') ?: 'Anonim';
+    $pesan = $request->input('pesan');
+
+    $messages = session('messages', []);
+    $messages[] = ['nama' => $nama, 'pesan' => $pesan];
+    session(['messages' => $messages]);
+
+    return redirect('/')->with('success', 'Pesan yang dikirim ada di bawah!');
+}
+
 }

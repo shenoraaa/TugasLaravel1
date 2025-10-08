@@ -1,0 +1,84 @@
+body.form-body {
+    background: url('../images/bgblur.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+.form-container {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 35px 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    backdrop-filter: blur(5px);
+    animation: fadeInUp 0.8s ease;
+}
+
+.form-container h2 {
+    color: #102a71;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 0.9em;
+    color: #5b6b95;
+    margin-bottom: 25px;
+}
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1.5px solid #ccd4ee;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    resize: none;
+    box-sizing: border-box;
+}
+.input-group textarea {
+    min-height: 120px;
+    line-height: 1.5;
+}
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #102a71;
+    box-shadow: 0 0 10px rgba(16, 42, 113, 0.2);
+    outline: none;
+}
+.btn-submit {
+    background: linear-gradient(135deg, #102a71, #1a4dd8);
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #153da3, #2a66f0);
+    box-shadow: 0 6px 15px rgba(16, 42, 113, 0.3);
+}
+
+/* animasi */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
