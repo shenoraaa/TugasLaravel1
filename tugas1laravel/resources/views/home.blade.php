@@ -19,20 +19,22 @@
 
     <div class="container">
         <header class="header-top">
-    <h2 class="library-title">Gridas Library</h2>
-    <p class="slogan">Akses Tak Terbatas, Wawasan Tanpa Batas.</p>
+            <h2 class="library-title">Gridas Library</h2>
+            <p class="slogan">Akses Tak Terbatas, Wawasan Tanpa Batas.</p>
 
-    <div class="pesan-btn-container">
-        <a href="{{ route('form.pesan') }}" class="pesan-btn">
-            💬 Kirim Pesan Khusus untuk Gridas Library
-        </a>
-    </div>
-</header>
-@if(session('success'))
-    <div style="background-color:#e1f5e1; color:#2a652a; padding:10px; border-radius:10px; margin:15px 0; text-align:center;">
-        {{ session('success') }}
-    </div>
-@endif
+            <div class="pesan-btn-container">
+                <a href="{{ route('form.pesan') }}" class="pesan-btn">
+                    💬 Kirim Pesan Khusus untuk Gridas Library
+                </a>
+                <a href="{{ url('peminjaman') }}" class="pinjam-btn-top">📚 Pinjam Buku</a>
+            </div>
+        </header>
+
+        @if(session('success'))
+            <div style="background-color:#e1f5e1; color:#2a652a; padding:10px; border-radius:10px; margin:15px 0; text-align:center;">
+                {{ session('success') }}
+            </div>
+        @endif
 
         <main>
             <div class="table-header">
@@ -42,24 +44,25 @@
                     <button type="submit">Cari</button>
                 </form>
             </div>
-<br>
+            <br>
 
             <div class="image-carousel-container">
-  <div class="carousel-track">
-    <div class="image-card">
-      <img src="{{ asset('images/buku_harrypotter.jpg') }}" alt="Buku 1">
-      <div class="book-title">Harry Potter</div>
-    </div>
-    <div class="image-card">
-      <img src="{{ asset('images/bukuLuna.jpg') }}" alt="Buku 2">
-      <div class="book-title">Planet Luna</div>
-    </div>
-    <div class="image-card">
-      <img src="{{ asset('images/Bukubaru.jpg') }}" alt="Buku 3">
-      <div class="book-title">The Last Spell</div>
-    </div>
-  </div>
-</div>
+                <div class="carousel-track">
+                    <div class="image-card">
+                        <img src="{{ asset('images/buku_harrypotter.jpg') }}" alt="Buku 1">
+                        <div class="book-title">Harry Potter</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="{{ asset('images/bukuLuna.jpg') }}" alt="Buku 2">
+                        <div class="book-title">Planet Luna</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="{{ asset('images/Bukubaru.jpg') }}" alt="Buku 3">
+                        <div class="book-title">The Last Spell</div>
+                    </div>
+                </div>
+            </div>
+
             <table>
                 <thead>
                     <tr>
@@ -67,7 +70,6 @@
                         <th>Judul Buku</th>
                         <th>Penulis</th>
                         <th>Tahun</th>
-                        <th>Harga</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -77,33 +79,54 @@
                             <td>{{ $book['judul'] }}</td>
                             <td>{{ $book['penulis'] }}</td>
                             <td>{{ $book['tahun'] }}</td>
-                            <td>{{ $book['harga'] }}</td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5">Tidak ada hasil ditemukan.</td>
+                            <td colspan="4">Tidak ada hasil ditemukan.</td>
                         </tr>
                     @endforelse
                 </tbody>
             </table>
         </main>
 
-@if(session('messages'))
-    <div class="pesan-container">
-        <h3>Pesan dari Pengunjung</h3>
-        @foreach(session('messages') as $msg)
-            <div class="pesan-box">
-                <strong>{{ $msg['nama'] }}</strong>:
-                <p>{{ $msg['pesan'] }}</p>
+        @if(session('messages'))
+            <div class="pesan-container">
+                <h3>Pesan dari Pengunjung</h3>
+                @foreach(session('messages') as $msg)
+                    <div class="pesan-box">
+                        <strong>{{ $msg['nama'] }}</strong>:
+                        <p>{{ $msg['pesan'] }}</p>
+                    </div>
+                @endforeach
             </div>
-        @endforeach
-    </div>
-@endif
-       <footer>
+        @endif
+
+        <footer>
             <div class="copyright">
                 &copy; {{ date('Y') }} Gridas Library. All rights reserved.
             </div>
         </footer>
     </div>
+
+    <style>
+        .pinjam-btn-top {
+            background-color: #1b2a49;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .pinjam-btn-top:hover {
+            background-color: #2d4679;
+        }
+        .pesan-btn-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
 </body>
 </html>

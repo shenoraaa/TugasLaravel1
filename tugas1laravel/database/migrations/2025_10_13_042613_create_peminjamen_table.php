@@ -13,8 +13,7 @@ return new class extends Migration
             $table->string('nama_peminjam');
             $table->string('judul_buku');
             $table->date('tanggal_pinjam');
-            $table->date('tanggal_kembali')->nullable();
-            $table->string('status')->default('dipinjam'); // contoh: dipinjam, dikembalikan
+            $table->string('status')->default('dipinjam');
             $table->timestamps();
         });
     }

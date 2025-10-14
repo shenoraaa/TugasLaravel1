@@ -15,7 +15,6 @@ class Peminjaman extends Model
         'nama_peminjam',
         'judul_buku',
         'tanggal_pinjam',
-        'tanggal_kembali',
         'status',
     ];
 }
